@@ -4,7 +4,7 @@ translate
 gtts
 phonenumbers
 pandas
-numpy
+numpy==1.21.6
 geopy
 requests
 scikit-learn==1.2.2
