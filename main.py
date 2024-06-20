@@ -171,7 +171,7 @@ symptomsDict = {symptom: index for index, symptom in enumerate(model.feature_nam
 description_list = dict()
 
 # Initialize descriptions list
-with open('/content/drive/MyDrive/Project/symptom_Description.csv') as csv_file:
+with open('symptom_Description.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
         description_list[row[0]] = row[1]
@@ -231,7 +231,7 @@ def send_language_selection(message):
     keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
     for code, language in supported_languages.items():
         keyboard.row(KeyboardButton(text=language))
-    bot.send_message(_id, "Hello, please select your preferred language:", reply_markup=keyboard)
+    bot.send_message(_id, "Hello, please select your preferred language (V: 🔊, NV: 🔈):", reply_markup=keyboard)
 
 @bot.message_handler(func=lambda message: message.text in supported_languages.values() and message.chat.id not in user_preferences)
 def handle_language_selection(message):
